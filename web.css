@@ -30,17 +30,17 @@ header .logo img {
 
 /* شريط التنقل */
 .navbar {
-    background-color: #333;
+    background-color: #ff6347;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 10px 5px rgba(0, 255, 55, 0.1);
+    box-shadow: 0 10px 5px rgba(255, 119, 0, 0.1);
     /* إضافة تأثير ظل خفيف */
 }
 
 .navbar ul {
     list-style-type: none;
-    margin:0;
+    margin: 0;
     padding: 10px;
     text-align: center;
 }
@@ -145,6 +145,59 @@ header .logo img {
 
 #home.hero .btn-primary:hover {
     background-color: #ff4500;
+}
+
+/* تنسيق الـ Carousel */
+#carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.carousel-item {
+    display: none;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+#carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* تنسيق الأزرار */
+.bu button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+}
+
+.bu button.prev {
+    left: 10px;
+}
+
+.bu button.next {
+    right: 10px;
+}
+
+.bu button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Products Section */
@@ -322,8 +375,6 @@ header .logo img {
     align-items: center;
     background-color: #fff;
     padding: 20px;
-    box-shadow: 0 10px 5px rgba(0, 255, 0, 0.1);
-    /* إضافة تأثير ظل للنموذج */
     border-radius: 8px;
 }
 
@@ -359,9 +410,49 @@ header .logo img {
 }
 
 #contact form button:hover {
-    background-color: #00f7ff;
+    background-color: #ff5500;
     transition: all 0.3s ease
 }
+
+/* تنسيق للعداد */
+#visitor-count {
+    background-color: rgba(0, 0, 0, 0.7);
+    /* خلفية شفافة داكنة */
+    color: white;
+    /* نص أبيض */
+    padding: 15px;
+    border-radius: 8px;
+    /* حواف دائرية */
+    width: 200px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    position: sticky;
+    bottom: 20px;
+    /* ظهور العداد في أسفل الشاشة */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* تأثير الظل */
+    z-index: 1000;
+    /* لضمان ظهوره فوق العناصر الأخرى */
+}
+
+/* تنسيق النص داخل العداد */
+#visitor-count p {
+    margin: 0;
+    font-size: 20px;
+    /* حجم النص */
+    font-weight: bold;
+}
+
+#visitor-number {
+    color: #ff5500;
+    /* لون مختلف لعدد الزوار */
+    font-size: 24px;
+    /* حجم أكبر لعدد الزوار */
+}
+
 
 
 /* Footer Section */
@@ -397,7 +488,7 @@ footer {
     position: fixed;
     bottom: 80px;
     right: 20px;
-    background-color: #242424;
+    background-color: #ff5500;
     color: white;
     padding: 10px 20px;
     cursor: pointer;
@@ -408,6 +499,7 @@ footer {
     background-color: #000000;
     transition: all 0.3s ease
 }
+
 /* الأجهزة الأكبر من التابلت (أكبر من 1024px) */
 @media screen and (min-width: 1025px) {
     .navbar {

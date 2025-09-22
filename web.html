@@ -18,33 +18,43 @@
             <img src="https://img.pikbest.com/png-images/20241127/fire-logo-and-its-burning_11140522.png!w700wp"
                 alt="Logo">
         </div>
-        <div class="contact-info">
-            <i class="fas fa-phone-alt"></i> 123-456-7890
-            <i class="fas fa-envelope"></i> info@example.com
-        </div>
-        <nav class="navbar">
+        <!-- شريط التنقل -->
+        <nav class="navbar" id="navbar">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#top">Top</a></li>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#products">products</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#bottom">Bottom</a></li>
             </ul>
         </nav>
-        <div class="hamburger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <h1>Welcome to Fire Parts Store</h1>
-        <p>Get ready to ride with maximum power with the best bike parts!</p>
-        <p>Boost your bike with the finest specialized parts!</p>
-        <p>Gear up with the best parts for your bike!</p>
-        <a href="#products" class="btn-primary">Shop Now</a>
-    </section>
+        <!-- تاب بار للأجهزة اللوحية -->
+        <nav id="tabBar" class="tab-bar">
+            <ul>
+                <li><a href="#top">Top</a></li>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#products">products</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#bottom">Bottom</a></li>
+            </ul>
+        </nav>
+
+        <!-- همبرغر مينو للأجهزة المحمولة -->
+        <div id="hamburgerMenu" class="hamburger-menu" onclick="toggleHamburgerMenu()">
+            &#9776; Menu
+        </div>
+
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <h1>Welcome to Fire Parts Store</h1>
+            <p>Get ready to ride with maximum power with the best bike parts!</p>
+            <p>Boost your bike with the finest specialized parts!</p>
+            <p>Gear up with the best parts for your bike!</p>
+            <a href="#products" class="btn-primary">Shop Now</a>
+        </section>
+    </header>
 
     <!-- Products Section -->
     <section id="products" class="products">
@@ -81,7 +91,8 @@
                 <img src="https://www.thevisorshop.com/Images/Models/Full/17662.Png" alt="Chain & Sprocket Kit" />
                 <div class="product-info">
                     <h3>Chain & Sprocket Kit</h3>
-                    <p>Heavy-duty chain and sprocket kit for smooth power transfer and enhanced riding performance.</p>
+                    <p>Heavy-duty chain and sprocket kit for smooth power transfer and enhanced riding performance.
+                    </p>
                     <span class="price">$89.99</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
@@ -93,7 +104,8 @@
                     alt="Clutch Cable" />
                 <div class="product-info">
                     <h3>Clutch Cable</h3>
-                    <p>High-quality clutch cable designed to provide smooth engagement and long-lasting durability.</p>
+                    <p>High-quality clutch cable designed to provide smooth engagement and long-lasting durability.
+                    </p>
                     <span class="price">$12.99</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
@@ -104,7 +116,8 @@
                 <img src="https://chrunix.com/pub/media/wysiwyg/image005.png" alt="Motorcycle Helmet" />
                 <div class="product-info">
                     <h3>Motorcycle Helmet</h3>
-                    <p>Premium motorcycle helmet with advanced safety features and comfortable padding for long rides.
+                    <p>Premium motorcycle helmet with advanced safety features and comfortable padding for long
+                        rides.
                     </p>
                     <span class="price">$129.99</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
@@ -117,7 +130,8 @@
                     alt="Handlebar Grips" />
                 <div class="product-info">
                     <h3>Handlebar Grips</h3>
-                    <p>Ergonomically designed handlebar grips for maximum comfort and control. Non-slip material ensures
+                    <p>Ergonomically designed handlebar grips for maximum comfort and control. Non-slip material
+                        ensures
                         a firm grip.</p>
                     <span class="price">$17.49</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
@@ -130,7 +144,8 @@
                     alt="Air Filter" />
                 <div class="product-info">
                     <h3>Air Filter</h3>
-                    <p>High-performance air filter designed to provide maximum airflow for improved engine performance.
+                    <p>High-performance air filter designed to provide maximum airflow for improved engine
+                        performance.
                     </p>
                     <span class="price">$22.99</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
@@ -142,7 +157,8 @@
                 <img src="https://i.ebayimg.com/images/g/XBUAAOSw1MVnRpjO/s-l1200.jpg" alt="LED Tail Light" />
                 <div class="product-info">
                     <h3>LED Tail Light</h3>
-                    <p>Stylish LED tail light with high brightness for increased visibility and safety on the road.</p>
+                    <p>Stylish LED tail light with high brightness for increased visibility and safety on the road.
+                    </p>
                     <span class="price">$39.99</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
@@ -154,7 +170,8 @@
                     alt="Motorcycle Exhaust Pipe" />
                 <div class="product-info">
                     <h3>Motorcycle Exhaust</h3>
-                    <p>High-flow exhaust pipe for a performance boost and enhanced sound. Easy to install with a stylish
+                    <p>High-flow exhaust pipe for a performance boost and enhanced sound. Easy to install with a
+                        stylish
                         design.</p>
                     <span class="price">$99.99</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
@@ -167,7 +184,8 @@
                     alt="Suspension Fork" />
                 <div class="product-info">
                     <h3>Suspension Fork</h3>
-                    <p>Adjustable suspension fork designed to offer superior comfort and control over rough terrain.</p>
+                    <p>Adjustable suspension fork designed to offer superior comfort and control over rough terrain.
+                    </p>
                     <span class="price">$219.99</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
@@ -179,7 +197,8 @@
                     alt="Motorcycle Battery" />
                 <div class="product-info">
                     <h3>Motorcycle Battery</h3>
-                    <p>High-capacity, long-lasting motorcycle battery for reliable starts and consistent power supply.
+                    <p>High-capacity, long-lasting motorcycle battery for reliable starts and consistent power
+                        supply.
                     </p>
                     <span class="price">$69.99</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
@@ -191,7 +210,8 @@
                 <img src="https://m.media-amazon.com/images/I/71VPGN1AdGL._UF350,350_QL80_.jpg" alt="Kickstand" />
                 <div class="product-info">
                     <h3>Kickstand</h3>
-                    <p>Heavy-duty kickstand for easy parking and added stability. Made from durable, corrosion-resistant
+                    <p>Heavy-duty kickstand for easy parking and added stability. Made from durable,
+                        corrosion-resistant
                         material.</p>
                     <span class="price">$25.99</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
@@ -251,7 +271,8 @@
                 <img src="https://i.ebayimg.com/images/g/PxYAAOSw4vhm~acZ/s-l1200.jpg" alt="Fuel Pump" />
                 <div class="product-info">
                     <h3>Fuel Pump</h3>
-                    <p>Reliable fuel pump designed to provide consistent fuel flow and efficient engine performance.</p>
+                    <p>Reliable fuel pump designed to provide consistent fuel flow and efficient engine performance.
+                    </p>
                     <span class="price">$59.99</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>

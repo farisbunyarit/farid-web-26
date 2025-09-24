@@ -6,6 +6,10 @@
     font-family: Arial, sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* Body and Background */
 body {
     background-color: #f9f9f9;
@@ -28,9 +32,52 @@ header .logo img {
     margin-left: 30px;
 }
 
+header .logo {
+    text-align: center;
+    margin-top: 20px;
+}
+
+header .logo h4 {
+    margin-top: 2px;
+    margin-left: 30px;
+    letter-spacing: 5px;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    flex-grow: 1;
+    color: white;
+    font-size: 14px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.contact-item a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+
 /* شريط التنقل */
 .navbar {
     background-color: #ff6347;
+    border-radius: 10px;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -117,88 +164,112 @@ header .logo img {
     border-radius: 15px;
 }
 
-/* Hero Section */
-#home.hero {
-    background-color: #333;
-    color: white;
+#search-section {
     text-align: center;
-    padding: 50px 20px;
+    margin: 20px 0;
 }
 
-#home.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-#home.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-#home.hero .btn-primary {
-    background-color: #ff6347;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
+#search-input {
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-#home.hero .btn-primary:hover {
-    background-color: #ff4500;
+#search-input:focus {
+    outline: none;
+    border-color: #007BFF;
 }
 
-/* تنسيق الـ Carousel */
-#carousel {
+
+img {
+    vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
     position: relative;
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
-    overflow: hidden;
-    border-radius: 10px;
 }
 
-.carousel-item {
+/* Hide the images by default */
+.mySlides {
     display: none;
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
 }
 
-.carousel-item.active {
-    display: block;
-}
-
-#carousel img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* تنسيق الأزرار */
-.bu button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
     cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
     font-size: 20px;
-    border-radius: 50%;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
-.bu button.prev {
-    left: 10px;
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
 }
 
-.bu button.next {
-    right: 10px;
-}
-
-.bu button:hover {
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Six columns side by side */
+.column {
+    float: left;
+    width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+    opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+    opacity: 1;
+}
+
 
 /* Products Section */
 .products {
@@ -414,44 +485,51 @@ header .logo img {
     transition: all 0.3s ease
 }
 
-/* تنسيق للعداد */
-#visitor-count {
-    background-color: rgba(0, 0, 0, 0.7);
-    /* خلفية شفافة داكنة */
-    color: white;
-    /* نص أبيض */
-    padding: 15px;
-    border-radius: 8px;
-    /* حواف دائرية */
-    width: 200px;
+/* تنسيق الحاوية الرئيسية للعداد */
+.count {
+    display: flex;
+    /* لعرض العناصر بجانب بعضها البعض */
+    flex-direction: column;
+    /* لجعل العناصر تتكدس عموديًا */
+    align-items: center;
+    /* لتوسيط العناصر أفقيًا */
+    justify-content: center;
+    /* لتوسيط العناصر رأسيًا */
     text-align: center;
-    font-family: Arial, sans-serif;
-    position: sticky;
-    bottom: 20px;
-    /* ظهور العداد في أسفل الشاشة */
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 18px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* تأثير الظل */
-    z-index: 1000;
-    /* لضمان ظهوره فوق العناصر الأخرى */
+    /* لضمان توسيط النص */
+    margin-top: 20px;
+    /* لإضافة مساحة من الأعلى */
 }
 
-/* تنسيق النص داخل العداد */
-#visitor-count p {
-    margin: 0;
-    font-size: 20px;
-    /* حجم النص */
-    font-weight: bold;
+/* تنسيق عنوان العداد */
+.count h4 {
+    margin-bottom: 10px;
+    /* مساحة تحت العنوان */
+    font-family: sans-serif;
+    /* خط بسيط وواضح */
+    color: #333;
+    /* لون غامق للنص */
 }
 
-#visitor-number {
-    color: #ff5500;
-    /* لون مختلف لعدد الزوار */
-    font-size: 24px;
-    /* حجم أكبر لعدد الزوار */
+/* تنسيق الصورة (العداد) */
+.counter-img {
+    width: 80px;
+    /* يمكنك زيادة هذا الرقم لتكبير العداد */
+    height: auto;
+    /* يحافظ على نسبة الصورة */
+    /* الخصائص الأخرى التي ذكرناها سابقاً: */
+    border: 2px solid #555;
+    border-radius: 8px;
+    padding: 5px;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* تعديل العداد نفسه في HTML: */
+/* لتأكد من ظهور الأرقام بوضوح، يمكن تعديل الكود في HTML. */
+/* يمكنك تغيير "style=0041" إلى "style=0005" مثلاً للحصول على أرقام أكبر وأكثر وضوحًا. */
+/* <img src="https://hitwebcounter.com/counter/counter.php?page=21441273&style=0005&nbdigits=1&type=page&initCount=0" /> */
+
 
 
 
@@ -459,6 +537,7 @@ header .logo img {
 footer {
     text-align: center;
     padding: 20px;
+    margin-top: 20px;
     background-color: #333;
     color: white;
 }
@@ -561,4 +640,11 @@ footer {
     .offer-card {
         width: 90%;
     }
+}
+
+.product-card.highlight {
+    border: 2px solid #FF5722;
+    box-shadow: 0 0 15px rgba(255, 87, 34, 0.6);
+    transform: scale(1.03);
+    transition: all 0.3s ease-in-out;
 }

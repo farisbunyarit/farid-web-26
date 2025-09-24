@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Motorcycle Spare Parts Store</title>
+    <title>Fire Parts Store</title>
     <link rel="stylesheet" href="web.css">
     <script src="web.js"></script>
 </head>
@@ -14,29 +14,42 @@
 
     <!-- Header -->
     <header>
+
         <div class="logo">
-            <img src="https://img.pikbest.com/png-images/20241127/fire-logo-and-its-burning_11140522.png!w700wp"
+            <img src="https://thumbs.dreamstime.com/b/abstract-fire-logo-design-flame-line-icon-vector-concept-399153878.jpg"
                 alt="Logo">
+            <h4>Fire Part</h4>
         </div>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="icon">📞</span>
+                <a href="tel:+1234567890">+0618851311</a>
+            </div>
+            <div class="contact-item">
+                <span class="icon">✉️</span>
+                <a href="mailto:info@example.com">faris.bunyarit1@gmail.com</a>
+            </div>
+        </div>
+
         <!-- شريط التنقل -->
         <nav class="navbar" id="navbar">
             <ul>
-                <li><a href="#top">Top</a></li>
-                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#bestsellers">best sellers</a></li>
                 <li><a href="#products">products</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#bottom">Bottom</a></li>
+                <li><a href="#footer">Bottom</a></li>
             </ul>
         </nav>
 
         <!-- تاب بار للأجهزة اللوحية -->
         <nav id="tabBar" class="tab-bar">
             <ul>
-                <li><a href="#top">Top</a></li>
-                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#navbar">Top</a></li>
+                <li><a href="#bestsellers">best sellers</a></li>
                 <li><a href="#products">products</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#bottom">Bottom</a></li>
+                <li><a href="#footer">Bottom</a></li>
             </ul>
         </nav>
 
@@ -45,37 +58,94 @@
             &#9776; Menu
         </div>
 
-
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <h1>Welcome to Fire Parts Store</h1>
-            <p>Get ready to ride with maximum power with the best bike parts!</p>
-            <p>Boost your bike with the finest specialized parts!</p>
-            <p>Gear up with the best parts for your bike!</p>
-            <a href="#products" class="btn-primary">Shop Now</a>
-        </section>
     </header>
 
-    <!-- ضع هذا الكود في ملف index.html داخل مكان مناسب حيث تريد عرض عربة الصور -->
-    <div id="carousel">
-        <div class="carousel-item active">
-            <img src="https://img.lazcdn.com/g/p/d969d94975494cfc6911b37caf3e304d.jpg_720x720q80.jpg"
-                alt="Motorcycle Exhaust Pipe">
+    <!-- Search Form -->
+    <section id="search-section">
+        <input type="text" id="search-input" placeholder="Search for products..." onkeyup="searchProducts()">
+    </section>
+
+
+    <h2 style="text-align:center">Slideshow Gallery</h2>
+    <div class="container">
+        <div class="mySlides">
+            <div class="numbertext">1 / 6</div>
+            <img src="https://m.media-amazon.com/images/I/712fflwzDqL.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
+                style="width:100%">
         </div>
-        <div class="carousel-item">
-            <img src="https://zcardepot.com/cdn/shop/products/690b3c9381e1d3562aa9bc6d46db0d24.jpg?v=1571754780"
-                alt="Air Filter">
+
+        <div class="mySlides">
+            <div class="numbertext">2 / 6</div>
+            <img src="https://m.media-amazon.com/images/I/71OgeaGrgaL.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
+                style="width:100%">
         </div>
-        <div class="carousel-item">
-            <img src="https://www.archerbatteries.com.au/assets/full/RevPlusSTX20-BS.jpg?20240908203556"
-                alt="Motorcycle Battery">
+
+        <div class="mySlides">
+            <div class="numbertext">3 / 6</div>
+            <img src="https://m.media-amazon.com/images/I/51ML9MMK8-L.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
+                style="width:100%">
         </div>
-        <div class="bu">
-            <!-- قم بإزالة onclick هنا -->
-            <button class="prev">&#10094;</button>
-            <button class="next">&#10095;</button>
+
+        <div class="mySlides">
+            <div class="numbertext">4 / 6</div>
+            <img src="https://m.media-amazon.com/images/I/71AynaGHzdL.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
+                style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">5 / 6</div>
+            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/test-pop-motorcyclegear-1583419560.jpg"
+                style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">6 / 6</div>
+            <img src="https://m.media-amazon.com/images/I/71oO5BytTsL.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
+                style="width:100%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <img class="demo cursor"
+                    src="https://m.media-amazon.com/images/I/712fflwzDqL.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
+                    style="width:100%" onclick="currentSlide(1)" alt="jacket-come soon..">
+            </div>
+            <div class="column">
+                <img class="demo cursor"
+                    src="https://m.media-amazon.com/images/I/71OgeaGrgaL.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
+                    style="width:100%" onclick="currentSlide(2)" alt="helmet-come soon..">
+            </div>
+            <div class="column">
+                <img class="demo cursor"
+                    src="https://m.media-amazon.com/images/I/51ML9MMK8-L.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
+                    style="width:100%" onclick="currentSlide(3)" alt="helmet-come soon..">
+            </div>
+            <div class="column">
+                <img class="demo cursor"
+                    src="https://m.media-amazon.com/images/I/71AynaGHzdL.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
+                    style="width:100%" onclick="currentSlide(4)" alt="helmet-come soon..">
+            </div>
+            <div class="column">
+                <img class="demo cursor"
+                    src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/test-pop-motorcyclegear-1583419560.jpg"
+                    style="width:100%" onclick="currentSlide(5)" alt="new package-come soon..">
+            </div>
+            <div class="column">
+                <img class="demo cursor"
+                    src="https://m.media-amazon.com/images/I/71oO5BytTsL.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
+                    style="width:100%" onclick="currentSlide(6)" alt="new package-come soon..">
+            </div>
         </div>
     </div>
+
+
 
     <!-- Products Section -->
     <section id="products" class="products">
@@ -83,7 +153,7 @@
         <div class="product-cards">
             <!-- 18 Product Cards -->
             <!-- Product Card 1 -->
-            <div class="product-card">
+            <div class="product-card" onclick="increaseClickCount(this)">
                 <img src="https://www.cnet.com/a/img/resize/b2a637f28e8748844a0ec510f2defb956d8a7bd1/hub/2022/01/26/bc25a029-7eff-46d6-9764-062866c1e069/best-motor-oil-hero.jpg?auto=webp&width=1200"
                     alt="Engine Oil Filter" />
                 <div class="product-info">
@@ -96,7 +166,7 @@
             </div>
 
             <!-- Product Card 2 -->
-            <div class="product-card">
+            <div class="product-card" onclick="increaseClickCount(this)">
                 <img src="https://i.ebayimg.com/images/g/0lkAAOSwvgVe4Zt8/s-l1200.jpg" alt="Brake Disc Rotor" />
                 <div class="product-info">
                     <h3>Brake Disc Rotor</h3>
@@ -108,7 +178,7 @@
             </div>
 
             <!-- Product Card 3 -->
-            <div class="product-card">
+            <div class="product-card" onclick="increaseClickCount(this)">
                 <img src="https://www.thevisorshop.com/Images/Models/Full/17662.Png" alt="Chain & Sprocket Kit" />
                 <div class="product-info">
                     <h3>Chain & Sprocket Kit</h3>
@@ -120,7 +190,7 @@
             </div>
 
             <!-- Product Card 4 -->
-            <div class="product-card">
+            <div class="product-card" onclick="increaseClickCount(this)">
                 <img src="https://trailtough.com/wp-content/uploads/2022/10/PhotoRoom-20221012_115417-1.png"
                     alt="Clutch Cable" />
                 <div class="product-info">
@@ -133,7 +203,7 @@
             </div>
 
             <!-- Product Card 5 -->
-            <div class="product-card">
+            <div class="product-card" onclick="increaseClickCount(this)">
                 <img src="https://chrunix.com/pub/media/wysiwyg/image005.png" alt="Motorcycle Helmet" />
                 <div class="product-info">
                     <h3>Motorcycle Helmet</h3>
@@ -146,7 +216,7 @@
             </div>
 
             <!-- Product Card 6 -->
-            <div class="product-card">
+            <div class="product-card" onclick="increaseClickCount(this)">
                 <img src="https://solarscooters.com/cdn/shop/products/solarscootersblackhandgrip.png?v=1659543901"
                     alt="Handlebar Grips" />
                 <div class="product-info">
@@ -160,7 +230,7 @@
             </div>
 
             <!-- Product Card 7 -->
-            <div class="product-card">
+            <div class="product-card" onclick="increaseClickCount(this)">
                 <img src="https://zcardepot.com/cdn/shop/products/690b3c9381e1d3562aa9bc6d46db0d24.jpg?v=1571754780"
                     alt="Air Filter" />
                 <div class="product-info">
@@ -174,7 +244,7 @@
             </div>
 
             <!-- Product Card 8 -->
-            <div class="product-card">
+            <div class="product-card"onclick="increaseClickCount(this)">
                 <img src="https://i.ebayimg.com/images/g/XBUAAOSw1MVnRpjO/s-l1200.jpg" alt="LED Tail Light" />
                 <div class="product-info">
                     <h3>LED Tail Light</h3>
@@ -186,7 +256,7 @@
             </div>
 
             <!-- Product Card 9 -->
-            <div class="product-card">
+            <div class="product-card" onclick="increaseClickCount(this)">
                 <img src="https://img.lazcdn.com/g/p/d969d94975494cfc6911b37caf3e304d.jpg_720x720q80.jpg"
                     alt="Motorcycle Exhaust Pipe" />
                 <div class="product-info">
@@ -200,7 +270,7 @@
             </div>
 
             <!-- Product Card 10 -->
-            <div class="product-card">
+            <div class="product-card" onclick="increaseClickCount(this)">
                 <img src="https://motofomo.com/wp-content/uploads/2021/01/Motorcycle-forks-ohlins-inverted.jpg"
                     alt="Suspension Fork" />
                 <div class="product-info">
@@ -213,7 +283,7 @@
             </div>
 
             <!-- Product Card 11 -->
-            <div class="product-card">
+            <div class="product-card" onclick="increaseClickCount(this)">
                 <img src="https://www.archerbatteries.com.au/assets/full/RevPlusSTX20-BS.jpg?20240908203556"
                     alt="Motorcycle Battery" />
                 <div class="product-info">
@@ -227,7 +297,7 @@
             </div>
 
             <!-- Product Card 12 -->
-            <div class="product-card">
+            <div class="product-card" onclick="increaseClickCount(this)">
                 <img src="https://m.media-amazon.com/images/I/71VPGN1AdGL._UF350,350_QL80_.jpg" alt="Kickstand" />
                 <div class="product-info">
                     <h3>Kickstand</h3>
@@ -240,7 +310,7 @@
             </div>
 
             <!-- Product Card 13 -->
-            <div class="product-card">
+            <div class="product-card" onclick="increaseClickCount(this)">
                 <img src="https://advtribe.net/cdn/shop/files/himalayan-450-radiator-guard-advtribe-01.webp?v=1721322421"
                     alt="Radiator Guard" />
                 <div class="product-info">
@@ -252,7 +322,7 @@
             </div>
 
             <!-- Product Card 14 -->
-            <div class="product-card">
+            <div class="product-card" onclick="increaseClickCount(this)">
                 <img src="https://www.motea.com/media/catalog/product/cache/aef11c455bdfd39c0ef150b07df186a6/z/a/zaddox_tachometer_a030955-01.jpg"
                     alt="Speedometer" />
                 <div class="product-info">
@@ -265,7 +335,7 @@
             </div>
 
             <!-- Product Card 15 -->
-            <div class="product-card">
+            <div class="product-card" onclick="increaseClickCount(this)">
                 <img src="https://i.ebayimg.com/images/g/UuoAAOSwt4lkCKhN/s-l1200.jpg" alt="Fork Seal" />
                 <div class="product-info">
                     <h3>Fork Seal</h3>
@@ -276,7 +346,7 @@
             </div>
 
             <!-- Product Card 16 -->
-            <div class="product-card">
+            <div class="product-card" onclick="increaseClickCount(this)">
                 <img src="https://motomasricambi.it/wp-content/uploads/2023/12/517653_5229202.jpg"
                     alt="Throttle Grip" />
                 <div class="product-info">
@@ -288,7 +358,7 @@
             </div>
 
             <!-- Product Card 17 -->
-            <div class="product-card">
+            <div class="product-card" onclick="increaseClickCount(this)">
                 <img src="https://i.ebayimg.com/images/g/PxYAAOSw4vhm~acZ/s-l1200.jpg" alt="Fuel Pump" />
                 <div class="product-info">
                     <h3>Fuel Pump</h3>
@@ -300,7 +370,7 @@
             </div>
 
             <!-- Product Card 18 -->
-            <div class="product-card">
+            <div class="product-card" onclick="increaseClickCount(this)">
                 <img src="https://zerogravity-racing.com/cdn/shop/files/Zero-Gravity-SR-Windscreen-Kawasaki-ZX-6R-Front-20-248_large.jpg?v=1706571438"
                     alt="Windshield" />
                 <div class="product-info">
@@ -423,12 +493,19 @@
         </form>
     </section>
 
-    <div id="visitor-count">
-        <p>visitor-number : <span id="visitor-number">0</span></p>
+    <div class="count">
+        <h4 id="h4">Visitor Count</h4>
+        <!-- hitwebcounter Code START -->
+        <a href="https://www.hitwebcounter.com/" target="_blank">
+            <img src="https://hitwebcounter.com/counter/counter.php?page=21441273&style=0005&nbdigits=1&type=page&initCount=0"
+                title="Counters" alt="Counters" border="0" class="counter-img" />
+        </a>
     </div>
 
+
+
     <!-- Footer Section -->
-    <footer>
+    <footer id="footer">
         <p>© 2025 Motorcycle Spare Parts Store</p>
     </footer>
     <!-- Footer Navigation for Tablet -->

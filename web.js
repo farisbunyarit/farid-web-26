@@ -1,26 +1,92 @@
-// Toggle the mobile navigation menu
-const hamburgerMenu = document.querySelector('.hamburger-menu');
-const navbar = document.querySelector('.navbar');
+let productClicks = JSON.parse(localStorage.getItem('productClicks')) || {};
 
-hamburgerMenu.addEventListener('click', () => {
-    navbar.classList.toggle('active');
+function increaseClickCount(productCard) {
+    const productId = productCard.querySelector('h3').textContent;
+
+    if (!productClicks[productId]) {
+        productClicks[productId] = 0;
+    }
+
+    productClicks[productId]++;
+    localStorage.setItem('productClicks', JSON.stringify(productClicks));
+
+    highlightTopProducts();
+}
+
+function highlightTopProducts() {
+    const sortedProducts = Object.entries(productClicks).sort((a, b) => b[1] - a[1]);
+    const top3 = sortedProducts.slice(0, 3).map(item => item[0]);
+
+    const allCards = document.querySelectorAll('.product-card');
+
+    allCards.forEach(card => {
+        const title = card.querySelector('h3').textContent;
+
+        if (top3.includes(title)) {
+            card.classList.add('highlight');
+        } else {
+            card.classList.remove('highlight');
+        }
+    });
+}
+
+window.addEventListener('DOMContentLoaded', highlightTopProducts);
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("demo");
+    let captionText = document.getElementById("caption");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+    captionText.innerHTML = dots[slideIndex - 1].alt;
+}
+
+// Toggle the mobile navigation menu
+const hamburgerMenu = document.querySelector(".hamburger-menu");
+const navbar = document.querySelector(".navbar");
+
+hamburgerMenu.addEventListener("click", () => {
+    navbar.classList.toggle("active");
 });
 
 // Scroll to top button functionality
-const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
 window.onscroll = function () {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        scrollToTopBtn.style.display = 'block';
+    if (
+        document.body.scrollTop > 300 ||
+        document.documentElement.scrollTop > 300
+    ) {
+        scrollToTopBtn.style.display = "block";
     } else {
-        scrollToTopBtn.style.display = 'none';
+        scrollToTopBtn.style.display = "none";
     }
 };
 
-scrollToTopBtn.addEventListener('click', () => {
+scrollToTopBtn.addEventListener("click", () => {
     window.scrollTo({
         top: 0,
-        behavior: 'smooth',
+        behavior: "smooth",
     });
 });
 // دالة للتحقق من المدخلات
@@ -39,34 +105,37 @@ function validateForm(event) {
     // تحقق من الاسم (يجب أن يحتوي على حروف فقط)
     const nameRegex = /^[A-Za-z\s]+$/;
     if (!name || !nameRegex.test(name)) {
-        alert('Please enter a valid name with letters only.');
+        alert("Please enter a valid name with letters only.");
         return false;
     }
 
     // تحقق من البريد الإلكتروني (يجب أن يكون من نطاق @ftu.ac.th)
     const emailRegex = /^[a-zA-Z0-9._%+-]+@ftu\.ac\.th$/;
     if (!email || !emailRegex.test(email)) {
-        alert('Please enter a valid email with the domain @ftu.ac.th.');
+        alert("Please enter a valid email with the domain @ftu.ac.th.");
         return false;
     }
 
     // تحقق من رقم الهاتف (يجب أن يكون مكونًا من 10 أرقام فقط)
     const phoneRegex = /^\d{10}$/;
     if (!phone || !phoneRegex.test(phone)) {
-        alert('Phone number must be 10 digits.');
+        alert("Phone number must be 10 digits.");
         return false;
     }
 
     // تحقق من كلمة السر (يجب أن تحتوي على أحرف كبيرة وصغيرة وأرقام ورموز خاصة)
-    const secretwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+    const secretwordRegex =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
     if (!secretword || !secretwordRegex.test(secretword)) {
-        alert('Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.');
+        alert(
+            "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character."
+        );
         return false;
     }
 
     // تحقق من الرسالة (يجب ألا تكون فارغة)
     if (!message) {
-        alert('Please enter a message.');
+        alert("Please enter a message.");
         return false;
     }
 
@@ -85,65 +154,38 @@ function validateForm(event) {
     console.log("Message:", sanitizedMessage);
 
     // بعد التحقق والتأكد من صحة المدخلات، يمكن إرسال النموذج
-    document.getElementById('contactForm').submit();
+    document.getElementById("contactForm").submit();
 }
 
 // دالة لتنظيف المدخلات (Sanitize)
 function sanitizeInput(input) {
-    const div = document.createElement('div');
+    const div = document.createElement("div");
     div.textContent = input; // تحويل المدخلات إلى نص عادي لإزالة أي أكواد ضارة
     return div.innerHTML;
 }
 
 // إضافة حدث التحقق عند إرسال النموذج
-document.getElementById('contactForm').addEventListener('submit', validateForm);
+document.getElementById("contactForm").addEventListener("submit", validateForm);
 
-let currentSlide = 0;
-const slides = document.querySelectorAll('.carousel-item');
-const totalSlides = slides.length;
+// البحث في المنتجات
+function searchProducts() {
+    const searchQuery = document.getElementById('search-input').value.toLowerCase();
+    const products = document.querySelectorAll('.product-card');
 
-// دالة للتحرك بين الشرائح (الصور)
-function moveSlide(step) {
-    // إزالة الصورة الحالية من العرض
-    slides[currentSlide].classList.remove('active');
+    products.forEach(product => {
+        const title = product.querySelector('h3').textContent.toLowerCase();
+        const description = product.querySelector('p').textContent.toLowerCase();
 
-    // تحديث رقم الشريحة الحالية بناءً على الخطوة
-    currentSlide = (currentSlide + step + totalSlides) % totalSlides;
-
-    // إضافة الكلاس "active" للصورة الجديدة
-    slides[currentSlide].classList.add('active');
+        // إخفاء المنتجات التي لا تحتوي على النص المدخل
+        if (title.includes(searchQuery) || description.includes(searchQuery)) {
+            product.style.display = 'block';
+        } else {
+            product.style.display = 'none';
+        }
+    });
 }
 
-// تعيين التبديل التلقائي بين الشرائح (كل 3 ثواني)
-setInterval(() => moveSlide(1), 3000);
 
-// إضافة أحداث للأزرار بعد تحميل الصفحة
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('.prev').addEventListener('click', () => moveSlide(-1));
-    document.querySelector('.next').addEventListener('click', () => moveSlide(1));
-});
-
-// دالة لحساب عدد الزوار
-function countVisitors() {
-    // جلب عدد الزيارات المخزنة في localStorage (إذا كانت موجودة)
-    let visitorCount = localStorage.getItem('visitorCount');
-
-    // إذا لم يكن هناك عدد زيارات سابق (الزيارة الأولى)، سننشئ قيمة جديدة
-    if (!visitorCount) {
-        visitorCount = 1; // أول زيارة
-    } else {
-        visitorCount = parseInt(visitorCount) + 1; // إذا كان هناك زيارات سابقة، نزيد العدد
-    }
-
-    // حفظ العدد الجديد في localStorage
-    localStorage.setItem('visitorCount', visitorCount);
-
-    // تحديث العنصر في الصفحة لعرض عدد الزوار
-    document.getElementById('visitor-number').textContent = visitorCount;
-}
-
-// استدعاء الدالة لحساب الزيارات عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', countVisitors);
 
 
 

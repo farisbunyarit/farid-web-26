@@ -182,24 +182,10 @@ header .logo h4 {
     border-color: #007BFF;
 }
 
-
-img {
-    vertical-align: middle;
-}
-
-/* Position the image container (needed to position the left and right arrows) */
-.container {
+.slideshow-container {
+    max-width: 1000px;
     position: relative;
-}
-
-/* Hide the images by default */
-.mySlides {
-    display: none;
-}
-
-/* Add a pointer when hovering over the thumbnail images */
-.cursor {
-    cursor: pointer;
+    margin: auto;
 }
 
 /* Next & previous buttons */
@@ -207,16 +193,16 @@ img {
 .next {
     cursor: pointer;
     position: absolute;
-    top: 40%;
+    top: 50%;
     width: auto;
     padding: 16px;
-    margin-top: -50px;
+    margin-top: -22px;
     color: white;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
+    transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
-    -webkit-user-select: none;
 }
 
 /* Position the "next button" to the right */
@@ -231,6 +217,17 @@ img {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+/* Caption text */
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
 /* Number text (1/3 etc) */
 .numbertext {
     color: #f2f2f2;
@@ -240,34 +237,47 @@ img {
     top: 0;
 }
 
-/* Container for image text */
-.caption-container {
-    text-align: center;
-    background-color: #222;
-    padding: 2px 16px;
-    color: white;
-}
-
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* Six columns side by side */
-.column {
-    float: left;
-    width: 16.66%;
-}
-
-/* Add a transparency effect for thumnbail images */
-.demo {
-    opacity: 0.6;
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
 }
 
 .active,
-.demo:hover {
-    opacity: 1;
+.dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+
+    .prev,
+    .next,
+    .text {
+        font-size: 11px
+    }
 }
 
 
@@ -648,3 +658,37 @@ footer {
     transform: scale(1.03);
     transition: all 0.3s ease-in-out;
 }
+
+#top-products-container {
+  background: #fff4dc;
+  border: 2px solid #ffae00;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 25px auto;
+  width: 100%;               /* ✅ ياخذ عرض الشاشة */
+  max-width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#top-products-list {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;           /* ✅ يخليهم ينزلون سطر إذا ضاق العرض */
+  padding: 10px 0;
+}
+
+#top-products-list .product-card {
+  flex: 1 1 250px;            /* ✅ يتكيف حسب العرض، ويصغر لما يحتاج */
+  max-width: 300px;
+  min-width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+}
+
+

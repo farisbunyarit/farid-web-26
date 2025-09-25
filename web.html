@@ -65,85 +65,50 @@
         <input type="text" id="search-input" placeholder="Search for products..." onkeyup="searchProducts()">
     </section>
 
-
-    <h2 style="text-align:center">Slideshow Gallery</h2>
-    <div class="container">
-        <div class="mySlides">
-            <div class="numbertext">1 / 6</div>
-            <img src="https://m.media-amazon.com/images/I/712fflwzDqL.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
-                style="width:100%">
+    <div id="top-products-container">
+        <h2>Most interactive:</h2>
+        <div id="top-products-list">
+            <!-- الكروت الأعلى راح تنعرض هنا -->
         </div>
+    </div>
 
-        <div class="mySlides">
-            <div class="numbertext">2 / 6</div>
-            <img src="https://m.media-amazon.com/images/I/71OgeaGrgaL.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
-                style="width:100%">
-        </div>
+    <h2 style="text-align:center">Come Soon !!</h2>
 
-        <div class="mySlides">
-            <div class="numbertext">3 / 6</div>
-            <img src="https://m.media-amazon.com/images/I/51ML9MMK8-L.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
-                style="width:100%">
-        </div>
+    <div class="slideshow-container">
 
-        <div class="mySlides">
-            <div class="numbertext">4 / 6</div>
-            <img src="https://m.media-amazon.com/images/I/71AynaGHzdL.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
-                style="width:100%">
-        </div>
-
-        <div class="mySlides">
-            <div class="numbertext">5 / 6</div>
-            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/test-pop-motorcyclegear-1583419560.jpg"
-                style="width:100%">
-        </div>
-
-        <div class="mySlides">
-            <div class="numbertext">6 / 6</div>
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
             <img src="https://m.media-amazon.com/images/I/71oO5BytTsL.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
                 style="width:100%">
+            <div class="text">Soon!!</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/test-pop-motorcyclegear-1583419560.jpg"
+                style="width:100%">
+            <div class="text">Soon!!</div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="https://m.media-amazon.com/images/I/71AynaGHzdL.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
+                style="width:100%">
+            <div class="text">Soon!!</div>
         </div>
 
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
 
-        <div class="caption-container">
-            <p id="caption"></p>
-        </div>
-
-        <div class="row">
-            <div class="column">
-                <img class="demo cursor"
-                    src="https://m.media-amazon.com/images/I/712fflwzDqL.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
-                    style="width:100%" onclick="currentSlide(1)" alt="jacket-come soon..">
-            </div>
-            <div class="column">
-                <img class="demo cursor"
-                    src="https://m.media-amazon.com/images/I/71OgeaGrgaL.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
-                    style="width:100%" onclick="currentSlide(2)" alt="helmet-come soon..">
-            </div>
-            <div class="column">
-                <img class="demo cursor"
-                    src="https://m.media-amazon.com/images/I/51ML9MMK8-L.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
-                    style="width:100%" onclick="currentSlide(3)" alt="helmet-come soon..">
-            </div>
-            <div class="column">
-                <img class="demo cursor"
-                    src="https://m.media-amazon.com/images/I/71AynaGHzdL.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
-                    style="width:100%" onclick="currentSlide(4)" alt="helmet-come soon..">
-            </div>
-            <div class="column">
-                <img class="demo cursor"
-                    src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/test-pop-motorcyclegear-1583419560.jpg"
-                    style="width:100%" onclick="currentSlide(5)" alt="new package-come soon..">
-            </div>
-            <div class="column">
-                <img class="demo cursor"
-                    src="https://m.media-amazon.com/images/I/71oO5BytTsL.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg"
-                    style="width:100%" onclick="currentSlide(6)" alt="new package-come soon..">
-            </div>
-        </div>
     </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
 
 
 
@@ -160,7 +125,7 @@
                     <h3>Engine Oil Filter</h3>
                     <p>High-performance engine oil filter for motorcycles. Helps improve engine life and smooth
                         operation.</p>
-                    <span class="price">$15.99</span>
+                    <span class="price">550 Baht</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
             </div>
@@ -172,7 +137,7 @@
                     <h3>Brake Disc Rotor</h3>
                     <p>Durable and heat-resistant brake disc rotor. Designed for precision braking and long-lasting
                         performance.</p>
-                    <span class="price">$49.99</span>
+                    <span class="price">1800 Baht</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
             </div>
@@ -184,7 +149,7 @@
                     <h3>Chain & Sprocket Kit</h3>
                     <p>Heavy-duty chain and sprocket kit for smooth power transfer and enhanced riding performance.
                     </p>
-                    <span class="price">$89.99</span>
+                    <span class="price">3200 Baht</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
             </div>
@@ -197,7 +162,7 @@
                     <h3>Clutch Cable</h3>
                     <p>High-quality clutch cable designed to provide smooth engagement and long-lasting durability.
                     </p>
-                    <span class="price">$12.99</span>
+                    <span class="price">460 Baht</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
             </div>
@@ -210,7 +175,7 @@
                     <p>Premium motorcycle helmet with advanced safety features and comfortable padding for long
                         rides.
                     </p>
-                    <span class="price">$129.99</span>
+                    <span class="price">4700 Baht</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
             </div>
@@ -224,7 +189,7 @@
                     <p>Ergonomically designed handlebar grips for maximum comfort and control. Non-slip material
                         ensures
                         a firm grip.</p>
-                    <span class="price">$17.49</span>
+                    <span class="price">640 Baht</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
             </div>
@@ -238,19 +203,19 @@
                     <p>High-performance air filter designed to provide maximum airflow for improved engine
                         performance.
                     </p>
-                    <span class="price">$22.99</span>
+                    <span class="price">840 Baht</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
             </div>
 
             <!-- Product Card 8 -->
-            <div class="product-card"onclick="increaseClickCount(this)">
+            <div class="product-card" onclick="increaseClickCount(this)">
                 <img src="https://i.ebayimg.com/images/g/XBUAAOSw1MVnRpjO/s-l1200.jpg" alt="LED Tail Light" />
                 <div class="product-info">
                     <h3>LED Tail Light</h3>
                     <p>Stylish LED tail light with high brightness for increased visibility and safety on the road.
                     </p>
-                    <span class="price">$39.99</span>
+                    <span class="price">1460 Baht</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
             </div>
@@ -264,7 +229,7 @@
                     <p>High-flow exhaust pipe for a performance boost and enhanced sound. Easy to install with a
                         stylish
                         design.</p>
-                    <span class="price">$99.99</span>
+                    <span class="price">3650 Baht</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
             </div>
@@ -277,7 +242,7 @@
                     <h3>Suspension Fork</h3>
                     <p>Adjustable suspension fork designed to offer superior comfort and control over rough terrain.
                     </p>
-                    <span class="price">$219.99</span>
+                    <span class="price">8000 Baht</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
             </div>
@@ -291,7 +256,7 @@
                     <p>High-capacity, long-lasting motorcycle battery for reliable starts and consistent power
                         supply.
                     </p>
-                    <span class="price">$69.99</span>
+                    <span class="price">2550 Baht</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
             </div>
@@ -304,7 +269,7 @@
                     <p>Heavy-duty kickstand for easy parking and added stability. Made from durable,
                         corrosion-resistant
                         material.</p>
-                    <span class="price">$25.99</span>
+                    <span class="price">950 Baht</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
             </div>
@@ -316,7 +281,7 @@
                 <div class="product-info">
                     <h3>Radiator Guard</h3>
                     <p>Protect your motorcycle's radiator from dirt and debris with this sturdy radiator guard.</p>
-                    <span class="price">$55.99</span>
+                    <span class="price">2050 Baht</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
             </div>
@@ -329,7 +294,7 @@
                     <h3>Speedometer</h3>
                     <p>Accurate and easy-to-read digital speedometer with additional features like odometer and trip
                         meter.</p>
-                    <span class="price">$49.99</span>
+                    <span class="price">1800 Baht</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
             </div>
@@ -340,7 +305,7 @@
                 <div class="product-info">
                     <h3>Fork Seal</h3>
                     <p>Durable fork seals for ensuring smooth suspension performance and preventing oil leaks.</p>
-                    <span class="price">$14.99</span>
+                    <span class="price">540 Baht</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
             </div>
@@ -352,7 +317,7 @@
                 <div class="product-info">
                     <h3>Throttle Grip</h3>
                     <p>Ergonomic throttle grip designed for better control and comfort during long rides.</p>
-                    <span class="price">$17.99</span>
+                    <span class="price">650 Baht</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
             </div>
@@ -364,7 +329,7 @@
                     <h3>Fuel Pump</h3>
                     <p>Reliable fuel pump designed to provide consistent fuel flow and efficient engine performance.
                     </p>
-                    <span class="price">$59.99</span>
+                    <span class="price">2150 Baht</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
             </div>
@@ -377,11 +342,12 @@
                     <h3>Windshield</h3>
                     <p>Aerodynamic windshield designed to reduce wind resistance and improve rider comfort on long
                         rides.</p>
-                    <span class="price">$79.99</span>
+                    <span class="price">2900 Baht</span>
                     <a href="#" class="btn-primary">Add to Cart</a>
                 </div>
             </div>
 
+        </div>
     </section>
 
     <!-- Best Sellers Section -->
@@ -397,19 +363,19 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Product 1</td>
-                    <td>$29.99</td>
-                    <td>100</td>
+                    <td>Motorcycle Helmet</td>
+                    <td>4,700 Baht</td>
+                    <td>320</td>
                 </tr>
                 <tr>
-                    <td>Product 2</td>
-                    <td>$19.99</td>
-                    <td>80</td>
+                    <td>Brake Disc Rotor</td>
+                    <td>1,800 Baht</td>
+                    <td>280</td>
                 </tr>
                 <tr>
-                    <td>Product 3</td>
-                    <td>$25.99</td>
-                    <td>120</td>
+                    <td>Throttle Grip</td>
+                    <td>650 Baht</td>
+                    <td>150</td>
                 </tr>
             </tbody>
         </table>
@@ -429,11 +395,11 @@
     <section id="offers" class="offers">
         <div class="offer-card">
             <h3>20% Off All Products!</h3>
-            <p>Use code "SAVE20" at checkout.</p>
+            <p>Use code "FIRE20" at checkout.</p>
         </div>
         <div class="offer-card">
-            <h3>Free Shipping on Orders over $50</h3>
-            <p>Shop now and get free shipping on orders above $50!</p>
+            <h3>Free Shipping on Orders over $500 Baht</h3>
+            <p>Shop now and get free shipping on orders above $100 Baht!</p>
         </div>
         <div class="offer-card">
             <h3>Buy 2 Get 1 Free!</h3>

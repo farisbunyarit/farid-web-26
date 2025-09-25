@@ -1,77 +1,116 @@
 let productClicks = JSON.parse(localStorage.getItem('productClicks')) || {};
 
 function increaseClickCount(productCard) {
-    const productId = productCard.querySelector('h3').textContent;
+  const productId = productCard.querySelector('h3').textContent;
 
-    if (!productClicks[productId]) {
-        productClicks[productId] = 0;
-    }
+  if (!productClicks[productId]) {
+    productClicks[productId] = 0;
+  }
 
-    productClicks[productId]++;
-    localStorage.setItem('productClicks', JSON.stringify(productClicks));
+  productClicks[productId]++;
+  localStorage.setItem('productClicks', JSON.stringify(productClicks));
 
-    highlightTopProducts();
+  highlightTopProducts(); // تحديث التمييز + عرض القائمة
 }
 
 function highlightTopProducts() {
-    const sortedProducts = Object.entries(productClicks).sort((a, b) => b[1] - a[1]);
-    const top3 = sortedProducts.slice(0, 3).map(item => item[0]);
+  const sortedProducts = Object.entries(productClicks).sort((a, b) => b[1] - a[1]);
+  const top3 = sortedProducts.slice(0, 3).map(item => item[0]); // فقط أسماء المنتجات
 
-    const allCards = document.querySelectorAll('.product-card');
+  const listContainer = document.getElementById("top-products-list");
+  listContainer.innerHTML = ""; // مسح القائمة
 
+  const allCards = document.querySelectorAll(".product-card");
+
+  allCards.forEach(card => {
+    const title = card.querySelector("h3").textContent;
+
+    // ✅ تمييز المنتجات الأعلى (داخل القائمة الأصلية)
+    if (top3.includes(title)) {
+      card.classList.add("highlight");
+    } else {
+      card.classList.remove("highlight");
+    }
+  });
+
+  // ✅ إضافة البطاقات الأعلى للقائمة الجانبية
+  top3.forEach(productName => {
     allCards.forEach(card => {
-        const title = card.querySelector('h3').textContent;
-
-        if (top3.includes(title)) {
-            card.classList.add('highlight');
-        } else {
-            card.classList.remove('highlight');
-        }
+      const title = card.querySelector("h3").textContent;
+      if (title === productName) {
+        const clonedCard = card.cloneNode(true);
+        clonedCard.onclick = null; // منع تكرار النقر داخل القائمة
+        clonedCard.classList.remove("highlight"); // نحذف التمييز من النسخة
+        listContainer.appendChild(clonedCard);
+      }
     });
+  });
 }
 
+// تحميل الترتيب عند فتح الصفحة
 window.addEventListener('DOMContentLoaded', highlightTopProducts);
 
+
+
+
+// ✅ إعداد عرض الشرائح (Slideshow)
 let slideIndex = 1;
 showSlides(slideIndex);
 
+// ✅ التبديل بين الشرائح (السابق/التالي)
 function plusSlides(n) {
-    showSlides(slideIndex += n);
+  showSlides(slideIndex += n);
 }
 
+// ✅ الانتقال لشريحة معينة (عند الضغط على النقاط مثلًا)
 function currentSlide(n) {
-    showSlides(slideIndex = n);
+  showSlides(slideIndex = n);
 }
 
+// ✅ عرض شريحة معينة بناءً على رقمها
 function showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("demo");
-    let captionText = document.getElementById("caption");
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-    captionText.innerHTML = dots[slideIndex - 1].alt;
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+
+  // إعادة تعيين الفهرس إذا خرج عن النطاق
+  if (n > slides.length) { slideIndex = 1 }    
+  if (n < 1) { slideIndex = slides.length }
+
+  // إخفاء كل الشرائح
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+
+  // إزالة الكلاس "active" من جميع النقاط (dots)
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+
+  // عرض الشريحة الحالية
+  slides[slideIndex - 1].style.display = "block";  
+
+  // تمييز النقطة المرتبطة بالشريحة الحالية
+  dots[slideIndex - 1].className += " active";
 }
 
-// Toggle the mobile navigation menu
+
+
+// ✅ التحكم في قائمة التنقل (الهامبرغر) للجوال
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 const navbar = document.querySelector(".navbar");
 
+// ✅ إظهار/إخفاء القائمة عند الضغط على زر القائمة
 hamburgerMenu.addEventListener("click", () => {
     navbar.classList.toggle("active");
 });
 
-// Scroll to top button functionality
+
+
+// ✅ زر "الرجوع للأعلى" عند التمرير لأسفل الصفحة
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
+// ✅ إظهار الزر عندما يتجاوز التمرير 300 بكسل
 window.onscroll = function () {
     if (
         document.body.scrollTop > 300 ||
@@ -83,18 +122,21 @@ window.onscroll = function () {
     }
 };
 
+// ✅ التمرير للأعلى عند الضغط على الزر
 scrollToTopBtn.addEventListener("click", () => {
     window.scrollTo({
         top: 0,
         behavior: "smooth",
     });
 });
-// دالة للتحقق من المدخلات
-function validateForm(event) {
-    // إيقاف إرسال النموذج الافتراضي
-    event.preventDefault();
 
-    // الحصول على المدخلات
+
+
+// ✅ دالة التحقق من المدخلات في نموذج الاتصال
+function validateForm(event) {
+    event.preventDefault(); // منع إرسال النموذج بشكل افتراضي
+
+    // ✅ جلب القيم من الحقول
     const name = document.querySelector('input[name="name"]').value;
     const subject = document.querySelector('input[name="subject"]').value;
     const phone = document.querySelector('input[name="phone"]').value;
@@ -102,28 +144,30 @@ function validateForm(event) {
     const secretword = document.querySelector('input[name="secretword"]').value;
     const message = document.querySelector('textarea[name="message"]').value;
 
-    // تحقق من الاسم (يجب أن يحتوي على حروف فقط)
+    // ✅ تحقق من الاسم (أحرف فقط)
     const nameRegex = /^[A-Za-z\s]+$/;
     if (!name || !nameRegex.test(name)) {
         alert("Please enter a valid name with letters only.");
         return false;
     }
 
-    // تحقق من البريد الإلكتروني (يجب أن يكون من نطاق @ftu.ac.th)
+    // ✅ تحقق من البريد الإلكتروني (تم تعطيله بالتعليق)
+    /*
     const emailRegex = /^[a-zA-Z0-9._%+-]+@ftu\.ac\.th$/;
     if (!email || !emailRegex.test(email)) {
         alert("Please enter a valid email with the domain @ftu.ac.th.");
         return false;
     }
+    */
 
-    // تحقق من رقم الهاتف (يجب أن يكون مكونًا من 10 أرقام فقط)
+    // ✅ تحقق من رقم الهاتف (10 أرقام)
     const phoneRegex = /^\d{10}$/;
     if (!phone || !phoneRegex.test(phone)) {
         alert("Phone number must be 10 digits.");
         return false;
     }
 
-    // تحقق من كلمة السر (يجب أن تحتوي على أحرف كبيرة وصغيرة وأرقام ورموز خاصة)
+    // ✅ تحقق من كلمة السر (أمان قوي)
     const secretwordRegex =
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
     if (!secretword || !secretwordRegex.test(secretword)) {
@@ -133,19 +177,20 @@ function validateForm(event) {
         return false;
     }
 
-    // تحقق من الرسالة (يجب ألا تكون فارغة)
+    // ✅ تحقق من الرسالة (لا يجب أن تكون فارغة)
     if (!message) {
         alert("Please enter a message.");
         return false;
     }
 
-    // إذا كانت المدخلات صحيحة، تنظيف المدخلات وإرسال النموذج
+    // ✅ تنظيف المدخلات قبل الإرسال (Sanitize)
     const sanitizedName = sanitizeInput(name);
     const sanitizedEmail = sanitizeInput(email);
     const sanitizedPhone = sanitizeInput(phone);
     const sanitizedSecretword = sanitizeInput(secretword);
     const sanitizedMessage = sanitizeInput(message);
 
+    // ✅ طباعة القيم في الكونسول (اختياري)
     console.log("Form Submitted Successfully!");
     console.log("Name:", sanitizedName);
     console.log("Email:", sanitizedEmail);
@@ -153,39 +198,36 @@ function validateForm(event) {
     console.log("Secret Word:", sanitizedSecretword);
     console.log("Message:", sanitizedMessage);
 
-    // بعد التحقق والتأكد من صحة المدخلات، يمكن إرسال النموذج
+    // ✅ إرسال النموذج بعد التحقق
     document.getElementById("contactForm").submit();
 }
 
-// دالة لتنظيف المدخلات (Sanitize)
+// ✅ دالة لتنظيف النصوص من أي أكواد خبيثة (XSS Protection)
 function sanitizeInput(input) {
     const div = document.createElement("div");
-    div.textContent = input; // تحويل المدخلات إلى نص عادي لإزالة أي أكواد ضارة
+    div.textContent = input;
     return div.innerHTML;
 }
 
-// إضافة حدث التحقق عند إرسال النموذج
+// ✅ ربط الدالة validateForm بإرسال النموذج
 document.getElementById("contactForm").addEventListener("submit", validateForm);
 
-// البحث في المنتجات
+
+
+// ✅ دالة البحث داخل المنتجات
 function searchProducts() {
     const searchQuery = document.getElementById('search-input').value.toLowerCase();
     const products = document.querySelectorAll('.product-card');
 
+    // ✅ فلترة المنتجات حسب العنوان أو الوصف
     products.forEach(product => {
         const title = product.querySelector('h3').textContent.toLowerCase();
         const description = product.querySelector('p').textContent.toLowerCase();
 
-        // إخفاء المنتجات التي لا تحتوي على النص المدخل
         if (title.includes(searchQuery) || description.includes(searchQuery)) {
-            product.style.display = 'block';
+            product.style.display = 'block';  // إظهار المنتج
         } else {
-            product.style.display = 'none';
+            product.style.display = 'none';   // إخفاؤه
         }
     });
 }
-
-
-
-
-

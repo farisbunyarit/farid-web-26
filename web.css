@@ -153,15 +153,44 @@ header .logo h4 {
 
 /* همبرغر مينو */
 .hamburger-menu {
-    display: none;
+    display: block;
     background-color: #333;
     color: white;
     padding: 10px;
     text-align: center;
     cursor: pointer;
     font-size: 18px;
-    /* تكبير حجم الخط قليلاً */
     border-radius: 15px;
+}
+
+/* إخفاء القائمة في البداية */
+.mobile-menu {
+    display: none;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-menu ul li {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.mobile-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* إظهار القائمة عند تفعيل الهامبرغر */
+.mobile-menu.show {
+    display: block;
 }
 
 #search-section {
@@ -660,35 +689,81 @@ footer {
 }
 
 #top-products-container {
-  background: #fff4dc;
-  border: 2px solid #ffae00;
-  padding: 20px;
-  border-radius: 8px;
-  margin: 25px auto;
-  width: 100%;               /* ✅ ياخذ عرض الشاشة */
-  max-width: 100%;
-  text-align: center;
-  box-sizing: border-box;
+    background: #fff4dc;
+    border: 2px solid #ffae00;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 25px auto;
+    width: 100%;
+    /* ✅ ياخذ عرض الشاشة */
+    max-width: 100%;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 #top-products-list {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;           /* ✅ يخليهم ينزلون سطر إذا ضاق العرض */
-  padding: 10px 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* ✅ يخليهم ينزلون سطر إذا ضاق العرض */
+    padding: 10px 0;
 }
 
 #top-products-list .product-card {
-  flex: 1 1 250px;            /* ✅ يتكيف حسب العرض، ويصغر لما يحتاج */
-  max-width: 300px;
-  min-width: 200px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #fff;
-  padding: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  box-sizing: border-box;
+    flex: 1 1 250px;
+    /* ✅ يتكيف حسب العرض، ويصغر لما يحتاج */
+    max-width: 300px;
+    min-width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+h1 {
+    margin-top: 30px;
+    font-size: 36px;
+    color: #333;
 }
 
 
+.weather-container {
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 400px;
+}
+
+.weather-container div {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.weather-container img {
+    width: 100px;
+    height: 100px;
+}
+
+.weather-container .temp {
+    font-size: 40px;
+    font-weight: bold;
+    color: #ff5733;
+}
+
+.weather-container .condition {
+    font-size: 24px;
+    color: #4caf50;
+}
+
+.weather-container .humidity,
+.weather-container .wind,
+.weather-container .feelslike {
+    font-size: 18px;
+    color: #666;
+}
